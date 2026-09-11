@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="DreamsPortal Test Suite">
+
+    <test name="DreamsPortal Tests">
+
+        <classes>
+
+            <!-- UI Tests -->
+            <class name="com.example.dreamsportal.tests.HomePageTest"/>
+            <class name="com.example.dreamsportal.tests.DreamsDiaryTest"/>
+            <class name="com.example.dreamsportal.tests.DreamsTotalTest"/>
+            <class name="com.example.dreamsportal.tests.AddDreamTest"/>
+
+            <!-- End-to-End Test -->
+            <class name="com.example.dreamsportal.tests.EndToEndTest"/>
+
+            <!-- API Tests -->
+            <class name="com.example.dreamsportal.tests.DreamsApiTest"/>
+
+            <!-- Integration Tests: UI + API + MySQL -->
+            <class name="com.example.dreamsportal.tests.DreamsIntegrationTest"/>
+
+        </classes>
+
+    </test>
+
+</suite>

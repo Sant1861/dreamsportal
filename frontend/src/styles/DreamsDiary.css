@@ -1,0 +1,95 @@
+.diary-page {
+  min-height: 100vh;
+  background: radial-gradient(circle, #1b2a4a, #0b162b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 30px;
+}
+
+.diary-container {
+  width: 950px;
+  background: #0e1a32;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.diary-container h1 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 25px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.diary-buttons {
+  margin-bottom: 20px;
+}
+
+.diary-buttons button {
+  background: #5f6cff;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.diary-buttons button:hover {
+  opacity: 0.9;
+}
+
+.diary-buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.diary-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.diary-container th {
+  background: #343a6b;
+  padding: 18px;
+  text-align: left;
+}
+
+.diary-container td {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dream-count {
+  margin-top: 20px;
+  text-align: right;
+  color: #a9b3c7;
+  font-weight: bold;
+}
+
+.edit-button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #4338ca;
+}

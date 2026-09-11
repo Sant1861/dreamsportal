@@ -1,0 +1,59 @@
+.summary-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle,
+      #1b2a4a,
+      #0b162b
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  padding: 30px;
+}
+
+.summary-container {
+  width: 800px;
+
+  background: #0e1a32;
+
+  padding: 40px;
+
+  border-radius: 20px;
+}
+
+.summary-container h1 {
+  text-align: center;
+
+  font-size: 38px;
+
+  margin-bottom: 30px;
+}
+
+.summary-container table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.summary-container th {
+  background: #343a6b;
+
+  padding: 18px;
+
+  text-align: left;
+}
+
+.summary-container td {
+  padding: 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.05);
+}

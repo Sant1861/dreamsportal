@@ -17,10 +17,28 @@ pipeline {
 
         stage('Verify Environment') {
             steps {
-                echo 'Checking Java and Maven versions...'
+                echo 'Checking Java, Maven and Node.js versions...'
 
                 bat 'java -version'
                 bat 'mvn -version'
+                bat 'node --version'
+                bat 'npm --version'
+            }
+        }
+
+        stage('Start Backend Services') {
+            steps {
+                echo 'Starting DreamsPortal backend services...'
+
+                bat '''
+                    start "Dream Service" cmd /c "cd backend\\dream-service && npm install && npm start"
+                    start "Summary Service" cmd /c "cd backend\\summary-service && npm install && npm start"
+                    start "API Gateway" cmd /c "cd backend\\api-gateway && npm install && npm start"
+                '''
+
+                echo 'Waiting for backend services to start...'
+
+                sleep time: 15, unit: 'SECONDS'
             }
         }
 

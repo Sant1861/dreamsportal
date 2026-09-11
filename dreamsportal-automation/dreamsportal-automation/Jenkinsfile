@@ -1,0 +1,54 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Checking out DreamsPortal source code...'
+                checkout scm
+            }
+        }
+
+        stage('Verify Environment') {
+            steps {
+                echo 'Checking Java and Maven versions...'
+
+                bat 'java -version'
+                bat 'mvn -version'
+            }
+        }
+
+        stage('Run Automation Tests') {
+            steps {
+                echo 'Running DreamsPortal Selenium, API and Database tests...'
+
+                dir('dreamsportal-automation/dreamsportal-automation') {
+                    bat 'mvn clean test'
+                }
+            }
+        }
+    }
+
+    post {
+
+        always {
+            echo 'Publishing test reports...'
+
+            junit allowEmptyResults: true,
+                  testResults: 'dreamsportal-automation/dreamsportal-automation/target/surefire-reports/*.xml'
+
+            archiveArtifacts allowEmptyArchive: true,
+                             artifacts: 'dreamsportal-automation/dreamsportal-automation/target/surefire-reports/**/*'
+        }
+
+        success {
+            echo 'DreamsPortal automation tests completed successfully!'
+        }
+
+        failure {
+            echo 'DreamsPortal automation tests failed. Check the test reports.'
+        }
+    }
+}

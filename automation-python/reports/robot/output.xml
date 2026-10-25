@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.12.10 on win32)" generated="2026-10-25T10:42:23.585370" rpa="false" schemaversion="5">
+<suite id="s1" name="Dreams Portal" source="D:\Project\dreamsportal\automation-python\robot\dreams_portal.robot">
+<kw name="Open Dreams Portal" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-25T10:42:23.924938" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Project\\dreamsportal\\automation-python\\reports\\robot\\browser\\traces\\temp\\310a5285-3328-4d08-b3f8-294bd3b2ce2f"}</msg>
+<msg time="2026-10-25T10:42:23.966329" level="INFO">Starting Browser process D:\Project\dreamsportal\automation-python\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:56784</msg>
+<msg time="2026-10-25T10:42:25.382751" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Project\\dreamsportal\\automation-python\\reports\\robot\\browser\\traces\\temp\\310a5285-3328-4d08-b3f8-294bd3b2ce2f"}</msg>
+<arg>chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-25T10:42:23.924938" elapsed="1.457813"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-25T10:42:25.386036" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-25T10:42:25.411214" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-25T10:42:25.411214" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-25T10:42:25.384749" elapsed="0.026465"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-25T10:42:25.816371" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-25T10:42:25.412212" elapsed="0.404159"/>
+</kw>
+<status status="PASS" start="2026-10-25T10:42:23.923943" elapsed="1.892428"/>
+</kw>
+<test id="s1-t1" name="TC01 Verify Dreams Portal Home Page" line="19">
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:25.919672" level="INFO">Text: ['✨\nDream Portal\n\nExplore your dream journey\n\n10\nDreams\n7\nDays\nMY DREAMS\nVIEW SUMMARY']</msg>
+<arg>body</arg>
+<arg>contains</arg>
+<arg>Dream</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:25.836108" elapsed="0.083564"/>
+</kw>
+<status status="PASS" start="2026-10-25T10:42:25.816371" elapsed="0.104298"/>
+</test>
+<test id="s1-t2" name="TC02 Verify My Dreams Page And Record Limit" line="22">
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-25T10:42:26.096482" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-25T10:42:25.938731" elapsed="0.157751"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-25T10:42:26.098486" level="INFO">Clicks the element 'text=My Dreams'.</msg>
+<arg>text=My Dreams</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.097476" elapsed="0.217305"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:26.343942" level="INFO">Text: ['⬅ Back to Home\nDreams Diary\nRemove DreamAdd Dream\nDream Name\tDays Ago\tDream Type\tActions\nIntegration Temporary Dream\t1 day ago\tGood\tEdit\nBeing Chased by Wolves\t2 days ago\tBad\tEdit\nLost in a Dark City\t2 days ago\tBad\tEdit\nFalling from a Brain\t3 days ago\tBad\tEdit\nRun From Ghost\t3 days ago\tBad\tEdit\nFear From Future\t4 days ago\tBad\tEdit\nArthur Morgan and Mary Linton separate forever after their final meeting in Saint Denis\t4 days ago\tBad\tEdit\nBecome a Software Engineer\t5 days ago\tGood\tEdit\nLiving in a Beautiful Castle\t6 days ago\tGood\tEdit\nJoining the company\t7 days ago\tGood\tEdit\nTotal Dreams: 10 / 10']</msg>
+<arg>body</arg>
+<arg>contains</arg>
+<arg>Dream</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.314781" elapsed="0.029161"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-25T10:42:26.352948" level="INFO">${count} = 10</msg>
+<var>${count}</var>
+<arg>button:has-text("Edit")</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.343942" elapsed="0.009983"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &lt;= 10</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.353925" elapsed="0.000998"/>
+</kw>
+<msg time="2026-10-25T10:42:26.371131" level="INFO">Closing current active page.</msg>
+<msg time="2026-10-25T10:42:26.388651" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<status status="PASS" start="2026-10-25T10:42:25.929681" elapsed="0.426241"/>
+</test>
+<test id="s1-t3" name="TC03 Verify Dreams Summary Page" line="29">
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-25T10:42:26.554628" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.400066" elapsed="0.154562"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-25T10:42:26.555627" level="INFO">Clicks the element 'text=View Summary'.</msg>
+<arg>text=View Summary</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.554628" elapsed="0.120741"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:26.706877" level="INFO">Text: ['⬅ Back to Home\nDreams Summary\nDream Type\tTotal Count\nGood Dreams\t4\nBad Dreams\t6\nTotal Dreams\t10\nTotal Days\t7']</msg>
+<arg>body</arg>
+<arg>contains</arg>
+<arg>Dreams Summary</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.675369" elapsed="0.031508"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:26.724879" level="INFO">Text: ['4']</msg>
+<msg time="2026-10-25T10:42:26.725898" level="INFO">${good} = 4</msg>
+<var>${good}</var>
+<arg>tr:has-text("Good Dreams") td:nth-child(2)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.707885" elapsed="0.018013"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:26.742270" level="INFO">Text: ['6']</msg>
+<msg time="2026-10-25T10:42:26.742270" level="INFO">${bad} = 6</msg>
+<var>${bad}</var>
+<arg>tr:has-text("Bad Dreams") td:nth-child(2)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.726879" elapsed="0.015391"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:26.757271" level="INFO">Text: ['10']</msg>
+<msg time="2026-10-25T10:42:26.757271" level="INFO">${total} = 10</msg>
+<var>${total}</var>
+<arg>tr:has-text("Total Dreams") td:nth-child(2)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.743274" elapsed="0.013997"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-25T10:42:26.770741" level="INFO">Text: ['7']</msg>
+<msg time="2026-10-25T10:42:26.770741" level="INFO">${days} = 7</msg>
+<var>${days}</var>
+<arg>tr:has-text("Total Days") td:nth-child(2)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.758271" elapsed="0.012470"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${good}</arg>
+<arg>^[0-9]+$</arg>
+<doc>Fails if the `string` does not match the regular expression `pattern`.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.771744" elapsed="0.002004"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${bad}</arg>
+<arg>^[0-9]+$</arg>
+<doc>Fails if the `string` does not match the regular expression `pattern`.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.773748" elapsed="0.000000"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${total}</arg>
+<arg>^[0-9]+$</arg>
+<doc>Fails if the `string` does not match the regular expression `pattern`.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.774758" elapsed="0.000000"/>
+</kw>
+<kw name="Should Match Regexp" owner="BuiltIn">
+<arg>${days}</arg>
+<arg>^[0-9]+$</arg>
+<doc>Fails if the `string` does not match the regular expression `pattern`.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.774758" elapsed="0.001011"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-25T10:42:26.775769" level="INFO">${calculated_total} = 10</msg>
+<var>${calculated_total}</var>
+<arg>int($good) + int($bad)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.775769" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-25T10:42:26.776755" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${calculated_total}</arg>
+<arg>${total}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.775769" elapsed="0.000986"/>
+</kw>
+<msg time="2026-10-25T10:42:26.786762" level="INFO">Closing current active page.</msg>
+<msg time="2026-10-25T10:42:26.799862" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<status status="PASS" start="2026-10-25T10:42:26.389659" elapsed="0.387096"/>
+</test>
+<test id="s1-t4" name="TC04 Verify Summary API Returns Valid Data" line="48">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-10-25T10:42:26.839006" level="INFO">GET Request : url=http://localhost:3000/api/summary 
+ path_url=/api/summary 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-10-25T10:42:26.839006" level="INFO">GET Response : url=http://localhost:3000/api/summary 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '62', 'ETag': 'W/"3e-AOJRqIOrEevmyDCXqluxwqZoXOg"', 'Date': 'Sun, 25 Oct 2026 05:12:26 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"good":4,"bad":6,"total":10,"days":7}} 
+ </msg>
+<msg time="2026-10-25T10:42:26.839006" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${API_URL}/api/summary</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.811671" elapsed="0.027335"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-25T10:42:26.841006" level="INFO">${body} = {'success': True, 'data': {'good': 4, 'bad': 6, 'total': 10, 'days': 7}}</msg>
+<var>${body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.840002" elapsed="0.001004"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${body}[success]</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.842002" elapsed="0.001000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-25T10:42:26.844004" level="INFO">${summary} = {'good': 4, 'bad': 6, 'total': 10, 'days': 7}</msg>
+<var>${summary}</var>
+<arg>${body}[data]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.843002" elapsed="0.001002"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${summary}</arg>
+<arg>good</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.844004" elapsed="0.000998"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${summary}</arg>
+<arg>bad</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.846006" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${summary}</arg>
+<arg>total</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.846997" elapsed="0.001002"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${summary}</arg>
+<arg>days</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.847999" elapsed="0.001009"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${summary}[good] &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.850005" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${summary}[bad] &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.850996" elapsed="0.001001"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${summary}[total] &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.851997" elapsed="0.000999"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${summary}[days] &gt;= 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.854000" elapsed="0.001000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-25T10:42:26.865349" level="INFO">${calculated_total} = 10</msg>
+<var>${calculated_total}</var>
+<arg>${summary}[good] + ${summary}[bad]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.863350" elapsed="0.001999"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${calculated_total}</arg>
+<arg>${summary}[total]</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.868493" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2026-10-25T10:42:26.800863" elapsed="0.070630"/>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-25T10:42:27.191271" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-25T10:42:26.887272" elapsed="0.305014"/>
+</kw>
+<status status="PASS" start="2026-10-25T10:42:23.587402" elapsed="3.604884"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Dreams Portal" id="s1" pass="4" fail="0" skip="0">Dreams Portal</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
